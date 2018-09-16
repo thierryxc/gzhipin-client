@@ -10,7 +10,7 @@ import {Provider} from 'react-redux';
 import store from './redux/store';
 
 ReactDom.render((
-    <Provider stroe={store}>
+    <Provider store={store}>
         <HashRouter>
                 <Switch>
                     <Route path='/register' component={Regsiter}></Route>
