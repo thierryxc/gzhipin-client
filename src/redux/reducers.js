@@ -1,6 +1,8 @@
 //包含多个reducer函数根据老的state和制定的action返回一个新的state
 import { combineReducers } from 'redux';
-import {AUTH_SUCCESS, ERROR_MSG} from './action-types'
+import {AUTH_SUCCESS, ERROR_MSG} from './action-types';
+import {getRedirectTo} from '../untils/index';
+
 const initUser = {
     username: '',//用户名
     type: '',//用户类型
@@ -11,7 +13,8 @@ const initUser = {
 function user(state=initUser, action) {
     switch (action.type) {
         case AUTH_SUCCESS://data是user
-            return {...state, ...action.data, redirectTo: '/'};
+            const {type, header} = action.data;
+            return {...state, ...action.data, redirectTo: getRedirectTo(type, header)};
         case ERROR_MSG ://data是msg
             return {...state, msg: action.data}
         default:
@@ -22,5 +25,7 @@ function user(state=initUser, action) {
 export default combineReducers({
     user
 });
-
 //向外暴露的状态结构 { user: {} },user在任意组件中都可以通过this.props获得
+
+
+
