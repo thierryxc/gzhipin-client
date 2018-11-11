@@ -6,3 +6,11 @@ export const reqRegister = (user) => ajax('/register', user, 'POST');
 export const reqLogin = (user) => ajax('/login', user, 'POST');
 //更新用户接口
 export const reqUpdate = (user) => ajax('/update', user, 'POST');
+//获取用户信息
+export const reqUser = () => ajax('/user');
+//获取用户列表
+export const reqUserList = (type) => ajax('/userlist', {type});
+//获取当前用户消息列表
+export const reqChatMsgList = () => ajax('/msglist');
+//修改当前消息为已读
+export const reqReadMsg = (from) => ajax('/readmsg', {from}, 'POST');

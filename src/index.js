@@ -9,15 +9,17 @@ import Regsiter from './containers/register/Register';
 import {Provider} from 'react-redux';
 import store from './redux/store';
 
+import './socket-io/Socket_io';
+
 ReactDom.render((
     <Provider store={store}>
         <HashRouter>
-                <Switch>
-                    <Route path='/register' component={Regsiter}></Route>
-                    <Route path='/login' component={Login}></Route>
-                    <Route component={Main}></Route>//默认组件，除了上面两个路径其余都是此组件
-                </Switch>  
-            </HashRouter>
+            <Switch>
+                <Route path='/register' component={Regsiter}></Route>
+                <Route path='/login' component={Login}></Route>
+                <Route component={Main}></Route>//默认组件，除了上面两个路径其余都是此组件
+            </Switch>  
+        </HashRouter>
     </Provider>
    )
     , document.getElementById("root"));
