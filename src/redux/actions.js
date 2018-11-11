@@ -64,10 +64,8 @@ export const readMsg = (from, to) => {
     return async dispatch => {
         const response = await reqReadMsg(from);
         const result = response.data;
-        console.log(result);
         if (result.code === 0) {
             const count = result.data;
-            console.log(count);
             dispatch(msgRead({count, from, to}));
         }
     }
